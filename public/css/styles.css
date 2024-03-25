@@ -1,0 +1,9 @@
+li {
+    list-style: none;
+}
+
+.diary {
+   border: solid 1px #6091d3; /*線*/
+   margin-bottom: 10px;
+   padding: 10px;
+}
