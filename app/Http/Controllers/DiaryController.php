@@ -27,4 +27,28 @@ class DiaryController extends Controller
 
         return redirect('/diaries');
     }
+
+    public function edit($id) {
+        $diary = Diary::find($id);
+        
+        return view('diaries.edit', [
+            'diary' => $diary,
+            'title' => '日記編集画面'
+        ]);
+    }
+
+    public function update(DiaryRequest $request, $id) {
+        $diary = Diary::find($id);
+        $diary->update($request->only('title', 'log'));
+        
+        return redirect('/diaries');
+    }
+
+    public function destroy($id) {
+        $diary = Diary::find($id);
+        $diary->delete();
+
+        return redirect('/diaries');
+    }
+
 }

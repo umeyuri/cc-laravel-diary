@@ -8,8 +8,10 @@
     @forelse ($diaries as $diary)
         <li>{{ $diary->title }}:{{ $diary->created_at }}</li>
         <li>{{ $diary->log }}</li>
-        <a href="">編集</a>
-        <form>
+        <a href="{{ url('/diaries/' . $diary->id . '/edit') }}">編集</a>
+        <form method="post" action="{{ url('/diaries/' . $diary->id) }}">
+            @csrf
+            @method('delete')
             <input type="submit" value="削除">
         </form>
     @empty
