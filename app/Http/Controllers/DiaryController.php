@@ -24,6 +24,7 @@ class DiaryController extends Controller
 
     public function store(DiaryRequest $request) {
         Diary::create($request->only('title', 'log'));
+        session()->flash('success', '日記を追加しました。');
 
         return redirect('/diaries');
     }
@@ -40,13 +41,15 @@ class DiaryController extends Controller
     public function update(DiaryRequest $request, $id) {
         $diary = Diary::find($id);
         $diary->update($request->only('title', 'log'));
-        
+        session()->flash('success', '日記を更新しました。');
+
         return redirect('/diaries');
     }
 
     public function destroy($id) {
         $diary = Diary::find($id);
         $diary->delete();
+        session()->flash('success', '日記を削除しました。');
 
         return redirect('/diaries');
     }

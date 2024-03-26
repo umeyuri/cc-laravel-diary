@@ -1,3 +1,17 @@
 .error {
     color: red;
 }
+
+.success {
+    color: green;
+}
+
+.diary {
+    border: solid 1px;
+    margin: 10px;
+    padding: 5px;
+}
+
+.diary-list {
+    list-style: none;
+}

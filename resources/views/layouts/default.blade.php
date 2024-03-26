@@ -11,6 +11,10 @@
     @foreach ($errors->all() as $error)
         <p class="error">{{ $error }}</p>
     @endforeach
+    
+    @if (session()->has('success'))
+        <p class="success">{{ session()->get('success') }}</p>
+    @endif
     @yield('content')
 </body>
 </html>
