@@ -26,3 +26,6 @@ Route::post('/diaries', [DiaryController::class, 'store']);
 Route::get('/diaries/{id}/edit', [DiaryController::class, 'edit']);
 Route::patch('/diaries/{id}', [DiaryController::class, 'update']);
 Route::delete('/diaries/{id}', [DiaryController::class, 'destroy']);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
