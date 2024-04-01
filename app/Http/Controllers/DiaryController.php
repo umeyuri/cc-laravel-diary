@@ -28,7 +28,11 @@ class DiaryController extends Controller
     }
 
     public function store(DiaryRequest $request) {
-        Diary::create($request->only('title', 'log'));
+        Diary::create([
+            'user_id' => \Auth::user()->id,
+            'title' => $request->title,
+            'log' => $request->log,
+        ]);
         session()->flash('success', '日記を追加しました。');
 
         return redirect('/diaries');
